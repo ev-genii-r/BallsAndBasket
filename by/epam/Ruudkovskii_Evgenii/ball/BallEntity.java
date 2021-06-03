@@ -1,25 +1,21 @@
 package ball;
 
+import color.Color;
+import java.util.Objects;
+
+/**
+ * Класс представляет собой сущность мячика со следующими полями:
+ * цвет color типа перечисления Color {@link Color}
+ * вес weight типа double
+ */
 public class BallEntity {
-    private String color;
+    private Color color;
     private double weight;
 
+    public BallEntity(){}
 
     public void setColor(int colorNumber){
-        String resultColor;
-        switch (colorNumber){
-            case 0: resultColor="red";break;
-            case 1: resultColor="blue";break;
-            case 2: resultColor="yellow";break;
-            case 3: resultColor="pink";break;
-            case 4: resultColor="black";break;
-            case 5: resultColor="orange";break;
-            case 6: resultColor="green";break;
-            case 7: resultColor="purple";break;
-            case 8: resultColor="brown";break;
-            default: resultColor="white";break;
-        }
-        this.color = resultColor;
+        this.color=Color.findColor(colorNumber);
     }
 
     public void setWeight(double weight) {
@@ -27,11 +23,35 @@ public class BallEntity {
     }
 
 
-
-    public String getColor() {
+    public Color getColor() {
         return color;
     }
     public double getWeight() {
         return weight;
     }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        BallEntity that = (BallEntity) o;
+        return Double.compare(that.weight, weight) == 0 && Objects.equals(color, that.color);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(color, weight);
+    }
+
+    /**
+     * Вывод всей информации о классе в виде строки
+     *
+     * @return строка типа "Ball weight: 1.23 color: WHITE"
+     */
+   @Override
+    public String toString(){
+        StringBuffer stringBuffer=new StringBuffer();
+        stringBuffer.append("Ball weight: "+weight+" color: "+color);
+        return stringBuffer.toString();
+   }
 }

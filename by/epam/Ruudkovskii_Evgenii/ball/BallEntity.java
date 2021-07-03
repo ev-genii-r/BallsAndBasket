@@ -1,6 +1,8 @@
 package ball;
 
 import color.Color;
+import exception.BallWeightException;
+
 import java.util.Objects;
 
 /**
@@ -13,6 +15,11 @@ public class BallEntity {
     private double weight;
 
     public BallEntity(){}
+
+    public BallEntity(Color color, double weight){
+        this.color=color;
+        this.weight=weight;
+    }
 
     public void setColor(int colorNumber){
         this.color=Color.findColor(colorNumber);
@@ -40,11 +47,11 @@ public class BallEntity {
 
     @Override
     public int hashCode() {
-        return Objects.hash(color, weight);
+        return (int)(31*((int)weight<<1));
     }
 
     /**
-     * Вывод всей информации о классе в виде строки
+     * Вывод всей информации об объекте в виде строки
      *
      * @return строка типа "Ball weight: 1.23 color: WHITE"
      */

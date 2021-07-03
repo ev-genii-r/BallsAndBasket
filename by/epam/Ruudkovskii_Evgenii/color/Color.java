@@ -17,27 +17,38 @@ public enum Color {
      * @return элемент enum Color, который соответствует цвету шарика
      */
     public static Color findColor(int number){
+        Color color;
         switch (number) {
             case 0:
-                return RED;
+                color= RED;
+                break;
             case 1:
-                return BLUE;
+                color= BLUE;
+                break;
             case 2:
-                return YELLOW;
+                color= YELLOW;
+                break;
             case 3:
-                return PINK;
+                color= PINK;
+                break;
             case 4:
-                return BLACK;
+                color= BLACK;
+                break;
             case 5:
-                return ORANGE;
+                color= ORANGE;
+                break;
             case 6:
-                return GREEN;
+                color= GREEN;
+                break;
             case 7:
-                return PURPLE;
+                color= PURPLE;
+                break;
             case 8:
-                return BROWN;
+                color= BROWN;
+                break;
             default:
-                return WHITE;
+                color= WHITE;
         }
+        return color;
     }
 }

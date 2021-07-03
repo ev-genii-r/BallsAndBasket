@@ -1,6 +1,8 @@
 package basket;
 
 import ball.BallEntity;
+import exception.BasketException;
+
 import java.util.ArrayList;
 
 /**
@@ -16,6 +18,9 @@ public class BasketEntity {
      * @param ball объект класса {@link BallEntity}
      */
     public void addBall(BallEntity ball){
+        if(ball==null){
+            return;
+        }
         list.add(ball);
     }
 

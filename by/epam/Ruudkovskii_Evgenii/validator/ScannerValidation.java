@@ -32,8 +32,8 @@ public class ScannerValidation {
     public double scanPositiveDouble(){
         double outputNumber;
         while(true){
-            outputNumber=scanner.nextDouble();
-            if(outputNumber>0) break;
+            outputNumber = scanner.nextDouble();
+            if (outputNumber > 0) break;
         }
         return outputNumber;
     }

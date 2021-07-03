@@ -3,6 +3,8 @@ package runner;
 import ball.BallEntity;
 import basket.BasketEntity;
 import basket.BasketService;
+import exception.BallWeightException;
+import exception.BasketException;
 import validator.ScannerValidation;
 
 public class Runner {
@@ -29,7 +31,6 @@ public class Runner {
             System.out.println("Input ball's weight");
             inputWeight=scanner.scanPositiveDouble();
             ball.setWeight(inputWeight);
-
             basket.addBall(ball);
         }
         for (int i=0;i<basket.getBasket().size();i++){
@@ -37,8 +38,9 @@ public class Runner {
         }
 
         System.out.println("====================");
-        int numberOfBlueBalls= BasketService.findNumberOfBlueBalls(basket);
-        double basketWeight= BasketService.calculateWeight(basket);
+        int numberOfBlueBalls = BasketService.findNumberOfBlueBalls(basket);
+        double basketWeight = BasketService.calculateWeight(basket);
+
         System.out.println("Number of blue balls= "+ numberOfBlueBalls);
         System.out.println("Basket weight= "+basketWeight);
     }
